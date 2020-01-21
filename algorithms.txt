@@ -1,0 +1,17 @@
+traverseAndRunCb = (arr, cb) => {
+      let ds = [...arr];
+      let loops = ds.length;
+
+      for(let i = 0; i < loops; i++){
+        const node = ds[i];
+        const hasChildren = node && node.values && node.values.length > 0;
+        if(hasChildren){
+          ds = [...ds, ...node.values];
+          loops = loops + node.values.length;
+        }
+console.log('CategoryTaxonomy.js: 83 --->', node);
+        if(node) cb(node);
+      }
+
+      this.setState({dataSource: ds});
+    }
