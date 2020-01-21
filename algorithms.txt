@@ -9,7 +9,7 @@ traverseAndRunCb = (arr, cb) => {
           ds = [...ds, ...node.values];
           loops = loops + node.values.length;
         }
-console.log('CategoryTaxonomy.js: 83 --->', node);
+
         if(node) cb(node);
       }
 
