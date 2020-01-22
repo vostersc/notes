@@ -1,5 +1,5 @@
-traverseAndRunCb = (arr, cb) => {
-      let ds = [...arr];
+traverseAndRunCb = (arr, cb) => { //WARNING see note below
+      let ds = [...arr]; //WARNING see note below
       let loops = ds.length;
 
       for(let i = 0; i < loops; i++){
@@ -13,5 +13,6 @@ traverseAndRunCb = (arr, cb) => {
         if(node) cb(node);
       }
 
-      this.setState({dataSource: ds});
+      this.setState({dataSource: arr});
+      //WARNING this works because arr is being assigned to ds, which is then used to store the 'state' of the for loop (the children nodes). we cannot pass ds to set state because it will have child values from bfs. we pass arr to the set state because the reference pass on line 2 allows the object's values to be 'indirectly' updated by the cb() (eg node.val = true)
     }
